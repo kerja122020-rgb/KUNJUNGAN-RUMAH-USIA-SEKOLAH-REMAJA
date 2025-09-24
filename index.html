@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -16,14 +17,14 @@
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .section-title {
             color: #1e40af;
-            font-weight: 600;
+            font-weight: bold;
             font-size: 1.1rem;
             margin-bottom: 1rem;
-            border-bottom: 2px solid #e5e7eb;
+            border-bottom: 2px solid #3b82f6;
             padding-bottom: 0.5rem;
         }
     </style>
@@ -33,34 +34,144 @@
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-blue-800 mb-2">CHECKLIST KUNJUNGAN RUMAH</h1>
             <h2 class="text-xl text-blue-600 mb-4">USIA SEKOLAH / REMAJA (≥ 6 - <18 Tahun)</h2>
-            <p class="text-gray-600">Berikan tanda centang (√) jika YA dan tanda silang (X) jika TIDAK</p>
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-yellow-700">
+                            <strong>Petunjuk Pengisian:</strong><br>
+                            • Pilih jawaban yang sesuai untuk setiap pertanyaan<br>
+                            • Untuk riwayat penyakit: centang semua yang berlaku<br>
+                            • Untuk hasil skrining: pilih "Normal" atau "Tidak Normal"<br>
+                            • Isi tanggal dengan format yang benar<br>
+                            • Field bertanda * wajib diisi
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <form id="healthForm" class="space-y-6">
-            <!-- Data Pribadi -->
+        <form id="checklistForm" class="space-y-6">
+            <!-- Data Dasar -->
             <div class="form-section">
-                <h3 class="section-title">Data Pribadi</h3>
+                <h3 class="section-title">Data Dasar</h3>
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
-                        <input type="text" name="nama" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Desa <span class="text-red-500">*</span></label>
+                        <select name="namaDesa" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih Desa</option>
+                            <option value="Desa Lompulle">Desa Lompulle</option>
+                            <option value="Desa Ganra">Desa Ganra</option>
+                            <option value="Desa Enrekeng">Desa Enrekeng</option>
+                            <option value="Desa Belo">Desa Belo</option>
+                        </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Posyandu <span class="text-red-500">*</span></label>
+                        <input type="text" name="namaPosyandu" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin</label>
-                        <select name="jenis_kelamin" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <option value="">Pilih...</option>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Kader <span class="text-red-500">*</span></label>
+                        <input type="text" name="namaKader" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap <span class="text-red-500">*</span></label>
+                        <input type="text" name="namaLengkap" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir <span class="text-red-500">*</span></label>
+                        <input type="date" name="tanggalLahir" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin <span class="text-red-500">*</span></label>
+                        <select name="jenisKelamin" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
+                </div>
+            </div>
+
+            <!-- Riwayat Penyakit -->
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Penyakit Keluarga</h3>
+                <div class="bg-blue-50 p-3 rounded-lg mb-4">
+                    <p class="text-sm text-blue-700"><strong>Petunjuk:</strong> Centang semua penyakit yang pernah dialami oleh anggota keluarga</p>
+                </div>
+                <div class="checkbox-group">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatKeluarga" value="Hipertensi" class="w-4 h-4 text-blue-600">
+                        <span>Hipertensi</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatKeluarga" value="Diabetes Mellitus" class="w-4 h-4 text-blue-600">
+                        <span>Diabetes Mellitus</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatKeluarga" value="Stroke" class="w-4 h-4 text-blue-600">
+                        <span>Stroke</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatKeluarga" value="Jantung" class="w-4 h-4 text-blue-600">
+                        <span>Jantung</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatKeluarga" value="Asma" class="w-4 h-4 text-blue-600">
+                        <span>Asma</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatKeluarga" value="Kolesterol Tinggi" class="w-4 h-4 text-blue-600">
+                        <span>Kolesterol Tinggi</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Penyakit Pribadi</h3>
+                <div class="bg-blue-50 p-3 rounded-lg mb-4">
+                    <p class="text-sm text-blue-700"><strong>Petunjuk:</strong> Centang semua penyakit yang pernah dialami oleh anak/remaja ini</p>
+                </div>
+                <div class="checkbox-group">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatPribadi" value="Hipertensi" class="w-4 h-4 text-blue-600">
+                        <span>Hipertensi</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatPribadi" value="Diabetes Mellitus" class="w-4 h-4 text-blue-600">
+                        <span>Diabetes Mellitus</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatPribadi" value="Stroke" class="w-4 h-4 text-blue-600">
+                        <span>Stroke</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatPribadi" value="Jantung" class="w-4 h-4 text-blue-600">
+                        <span>Jantung</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatPribadi" value="Asma" class="w-4 h-4 text-blue-600">
+                        <span>Asma</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="riwayatPribadi" value="Kolesterol Tinggi" class="w-4 h-4 text-blue-600">
+                        <span>Kolesterol Tinggi</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Waktu Kunjungan -->
+            <div class="form-section">
+                <h3 class="section-title">Waktu Kunjungan</h3>
+                <div class="grid md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Waktu Kunjungan</label>
-                        <select name="waktu_kunjungan" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <option value="">Pilih...</option>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Waktu Kunjungan <span class="text-red-500">*</span></label>
+                        <select name="waktuKunjungan" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
                             <option value="Kunjungan 1">Kunjungan 1</option>
                             <option value="Kunjungan 2">Kunjungan 2</option>
                             <option value="Kunjungan 3">Kunjungan 3</option>
@@ -70,88 +181,27 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Kunjungan</label>
-                        <input type="date" name="tanggal_kunjungan" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Kunjungan <span class="text-red-500">*</span></label>
+                        <input type="date" name="tanggalKunjungan" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
             </div>
 
-            <!-- Riwayat Penyakit -->
-            <div class="form-section">
-                <h3 class="section-title">Riwayat Penyakit Keluarga</h3>
-                <div class="checkbox-group">
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_keluarga" value="Hipertensi" class="rounded text-blue-600">
-                        <span>Hipertensi</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_keluarga" value="Diabetes Mellitus" class="rounded text-blue-600">
-                        <span>Diabetes Mellitus</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_keluarga" value="Stroke" class="rounded text-blue-600">
-                        <span>Stroke</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_keluarga" value="Jantung" class="rounded text-blue-600">
-                        <span>Jantung</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_keluarga" value="Asma" class="rounded text-blue-600">
-                        <span>Asma</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_keluarga" value="Kolesterol Tinggi" class="rounded text-blue-600">
-                        <span>Kolesterol Tinggi</span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h3 class="section-title">Riwayat Penyakit Pribadi</h3>
-                <div class="checkbox-group">
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_pribadi" value="Hipertensi" class="rounded text-blue-600">
-                        <span>Hipertensi</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_pribadi" value="Diabetes Mellitus" class="rounded text-blue-600">
-                        <span>Diabetes Mellitus</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_pribadi" value="Stroke" class="rounded text-blue-600">
-                        <span>Stroke</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_pribadi" value="Jantung" class="rounded text-blue-600">
-                        <span>Jantung</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_pribadi" value="Asma" class="rounded text-blue-600">
-                        <span>Asma</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="checkbox" name="riwayat_pribadi" value="Kolesterol Tinggi" class="rounded text-blue-600">
-                        <span>Kolesterol Tinggi</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Skrining -->
+            <!-- Skrining Demam -->
             <div class="form-section">
                 <h3 class="section-title">Skrining Demam</h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="skrining_demam" value="<37,5°C" class="text-blue-600">
-                        <span><37,5°C</span>
-                    </label>
-                    <label class="flex items-center space-x-2">
-                        <input type="radio" name="skrining_demam" value=">37,5°C" class="text-blue-600">
-                        <span>>37,5°C</span>
-                    </label>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Suhu Tubuh</label>
+                        <select name="suhuTubuh" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="<37,5°C"><37,5°C</option>
+                            <option value=">37,5°C">>37,5°C</option>
+                        </select>
+                    </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Riwayat Perjalanan Luar Daerah</label>
-                        <input type="text" name="riwayat_perjalanan" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <input type="text" name="riwayatPerjalanan" placeholder="Sebutkan tempat..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
             </div>
@@ -159,19 +209,159 @@
             <!-- Skrining Status Gizi -->
             <div class="form-section">
                 <h3 class="section-title">Riwayat Skrining Status Gizi (BB, TB, LP, LiLA)</h3>
-                <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-green-50 p-3 rounded-lg mb-4">
+                    <p class="text-sm text-green-700"><strong>Pilihan Hasil:</strong> Normal = Sesuai standar usia | Tidak Normal = Di luar standar usia</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-4 mb-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
-                        <input type="date" name="gizi_tanggal" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <input type="date" name="tanggalSkriningGizi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
-                        <input type="text" name="gizi_tempat" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <input type="text" name="tempatSkriningGizi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
-                        <select name="gizi_hasil" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <option value="">Pilih...</option>
+                        <select name="hasilSkriningGizi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Tidak Normal">Tidak Normal</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <h4 class="font-semibold text-gray-700 mb-3 border-t pt-4">Hasil Pengukuran</h4>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Berat Badan (BB)</label>
+                        <div class="relative">
+                            <input type="number" name="beratBadan" step="0.1" placeholder="0.0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 pr-12">
+                            <span class="absolute right-3 top-3 text-gray-500 text-sm">kg</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tinggi Badan (TB)</label>
+                        <div class="relative">
+                            <input type="number" name="tinggiBadan" step="0.1" placeholder="0.0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 pr-12">
+                            <span class="absolute right-3 top-3 text-gray-500 text-sm">cm</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Lingkar Perut (LP)</label>
+                        <div class="relative">
+                            <input type="number" name="lingkarPerut" step="0.1" placeholder="0.0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 pr-12">
+                            <span class="absolute right-3 top-3 text-gray-500 text-sm">cm</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Lingkar Lengan Atas (LiLA)</label>
+                        <div class="relative">
+                            <input type="number" name="lingkarLengan" step="0.1" placeholder="0.0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 pr-12">
+                            <span class="absolute right-3 top-3 text-gray-500 text-sm">cm</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">IMT (Indeks Massa Tubuh)</label>
+                        <div class="relative">
+                            <input type="number" name="imt" step="0.1" placeholder="0.0" readonly class="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 pr-16">
+                            <span class="absolute right-3 top-3 text-gray-500 text-sm">kg/m²</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Status Gizi Berdasarkan IMT</label>
+                        <input type="text" name="statusGizi" readonly placeholder="Otomatis terisi" class="w-full p-3 border border-gray-300 rounded-lg bg-gray-50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skrining Gigi dan Mulut -->
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Skrining Gigi dan Mulut</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" name="tanggalSkriningGigi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                        <input type="text" name="tempatSkriningGigi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                        <select name="hasilSkriningGigi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Tidak Normal">Tidak Normal</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skrining Anemia -->
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Skrining Anemia (Remaja Putri Kelas 7)</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" name="tanggalSkriningAnemia" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                        <input type="text" name="tempatSkriningAnemia" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                        <select name="hasilSkriningAnemia" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Tidak Normal">Tidak Normal</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skrining Indera -->
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Skrining Indera (6 Bulan Terakhir)</h3>
+                
+                <h4 class="font-semibold text-gray-700 mb-3">a. Penglihatan</h4>
+                <div class="grid md:grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" name="tanggalSkriningPenglihatan" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                        <input type="text" name="tempatSkriningPenglihatan" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                        <select name="hasilSkriningPenglihatan" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Tidak Normal">Tidak Normal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h4 class="font-semibold text-gray-700 mb-3">b. Pendengaran</h4>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" name="tanggalSkriningPendengaran" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                        <input type="text" name="tempatSkriningPendengaran" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                        <select name="hasilSkriningPendengaran" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
                             <option value="Normal">Normal</option>
                             <option value="Tidak Normal">Tidak Normal</option>
                         </select>
@@ -182,58 +372,112 @@
             <!-- Imunisasi -->
             <div class="form-section">
                 <h3 class="section-title">Imunisasi</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Campak (Kelas 1 SD)</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_campak" value="Ya" class="text-blue-600">
-                                <span>Ya</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_campak" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
+                <div class="bg-purple-50 p-3 rounded-lg mb-4">
+                    <p class="text-sm text-purple-700"><strong>Pilihan Jawaban:</strong> Ya = Sudah mendapat imunisasi | Tidak = Belum/tidak mendapat imunisasi</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Campak (Kelas 1 SD)</label>
+                            <select name="imunisasiCampak" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Rubela (Kelas 1 SD)</label>
+                            <select name="imunisasiRubela" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Difteri Tetanus (DT) Kelas 1 SD</label>
+                            <select name="imunisasiDT" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tetanus Difteri (Td) Kelas 2 dan 5</label>
+                            <select name="imunisasiTd" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
+                            </select>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Skrining Tekanan Darah -->
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Skrining Tekanan Darah (1 Tahun Terakhir)</h3>
+                <div class="grid md:grid-cols-3 gap-4">
                     <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Rubela (Kelas 1 SD)</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_rubela" value="Ya" class="text-blue-600">
-                                <span>Ya</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_rubela" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
-                        </div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" name="tanggalSkriningTensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Difteri Tetanus (DT) Kelas 1 SD</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_dt" value="Ya" class="text-blue-600">
-                                <span>Ya</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_dt" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
-                        </div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                        <input type="text" name="tempatSkriningTensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Tetanus Difteri (Td) Kelas 2 dan 5</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_td" value="Ya" class="text-blue-600">
-                                <span>Ya</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="imunisasi_td" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
-                        </div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                        <select name="hasilSkriningTensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Tidak Normal">Tidak Normal</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skrining Gula Darah -->
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Skrining Gula Darah (1 Tahun Terakhir)</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" name="tanggalSkriningGulaDarah" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                        <input type="text" name="tempatSkriningGulaDarah" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                        <select name="hasilSkriningGulaDarah" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Tidak Normal">Tidak Normal</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skrining Kesehatan Jiwa -->
+            <div class="form-section">
+                <h3 class="section-title">Riwayat Skrining Kesehatan Jiwa (1 Tahun Terakhir)</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" name="tanggalSkriningJiwa" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                        <input type="text" name="tempatSkriningJiwa" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                        <select name="hasilSkriningJiwa" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Tidak Normal">Tidak Normal</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -241,137 +485,189 @@
             <!-- Remaja Putri -->
             <div class="form-section">
                 <h3 class="section-title">Remaja Putri (Kelas 7-10)</h3>
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-4">
                     <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Ada TTD</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="ttd_ada" value="Ada" class="text-blue-600">
-                                <span>Ada</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="ttd_ada" value="Sekolah" class="text-blue-600">
-                                <span>Sekolah</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="ttd_ada" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
-                        </div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Ada TTD</label>
+                        <select name="adaTTD" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Ada">Ada</option>
+                            <option value="Sekolah">Sekolah</option>
+                            <option value="Tidak">Tidak</option>
+                        </select>
                     </div>
                     <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Minum TTD minggu ini/7 hari terakhir</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="ttd_minum" value="Ya" class="text-blue-600">
-                                <span>Ya</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="ttd_minum" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
-                        </div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Minum TTD minggu ini/7 hari terakhir</label>
+                        <select name="minumTTD" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih</option>
+                            <option value="Ya">Ya</option>
+                            <option value="Tidak">Tidak</option>
+                        </select>
                     </div>
                 </div>
             </div>
 
-            <!-- Perilaku -->
+            <!-- Kepatuhan Pengobatan Hipertensi -->
             <div class="form-section">
-                <h3 class="section-title">Perilaku dan Gizi</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Perilaku Merokok</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="perilaku_merokok" value="Aktif" class="text-blue-600">
-                                <span>Aktif</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="perilaku_merokok" value="Pasif" class="text-blue-600">
-                                <span>Pasif</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="perilaku_merokok" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
+                <h3 class="section-title">Kepatuhan Pengobatan Tekanan Darah Tinggi/Hipertensi</h3>
+                <div class="space-y-4">
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Terdiagnosa Hipertensi - Tanggal</label>
+                            <input type="date" name="tanggalDiagnosaHipertensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                            <input type="text" name="tempatDiagnosaHipertensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                            <select name="hasilDiagnosaHipertensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Normal">Normal</option>
+                                <option value="Tidak Normal">Tidak Normal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Kontrol Setiap Bulan</label>
+                            <select name="kontrolHipertensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Sudah">Sudah</option>
+                                <option value="Belum">Belum</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Sudah Minum Obat hari ini/24 jam terakhir</label>
+                            <select name="minumObatHipertensi" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Sudah">Sudah</option>
+                                <option value="Belum">Belum</option>
+                            </select>
                         </div>
                     </div>
                     <div>
-                        <h4 class="font-medium text-gray-700 mb-3">Isi Piringku (Keragaman Gizi)</h4>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="isi_piringku" value="Sesuai" class="text-blue-600">
-                                <span>Sesuai</span>
-                            </label>
-                            <label class="flex items-center space-x-2">
-                                <input type="radio" name="isi_piringku" value="Tidak" class="text-blue-600">
-                                <span>Tidak</span>
-                            </label>
-                        </div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Obat Hipertensi</label>
+                        <input type="text" name="namaObatHipertensi" placeholder="Catat nama obat..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
             </div>
 
-            <!-- Edukasi -->
+            <!-- Kepatuhan Pengobatan Diabetes -->
+            <div class="form-section">
+                <h3 class="section-title">Kepatuhan Pengobatan Kencing Manis/Diabetes Mellitus</h3>
+                <div class="space-y-4">
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Terdiagnosa DM - Tanggal</label>
+                            <input type="date" name="tanggalDiagnosaDM" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tempat</label>
+                            <input type="text" name="tempatDiagnosaDM" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Hasil</label>
+                            <select name="hasilDiagnosaDM" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Normal">Normal</option>
+                                <option value="Tidak Normal">Tidak Normal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Kontrol Setiap Bulan</label>
+                            <select name="kontrolDM" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Sudah">Sudah</option>
+                                <option value="Belum">Belum</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Sudah Minum Obat hari ini/24 jam terakhir</label>
+                            <select name="minumObatDM" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Pilih</option>
+                                <option value="Sudah">Sudah</option>
+                                <option value="Belum">Belum</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Obat DM</label>
+                        <input type="text" name="namaObatDM" placeholder="Catat nama obat..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perilaku Merokok -->
+            <div class="form-section">
+                <h3 class="section-title">Perilaku Merokok</h3>
+                <div class="bg-red-50 p-3 rounded-lg mb-4">
+                    <p class="text-sm text-red-700"><strong>Pilihan Jawaban:</strong> Aktif = Merokok sendiri | Pasif = Menghirup asap rokok orang lain | Tidak = Tidak terpapar asap rokok</p>
+                </div>
+                <div>
+                    <select name="perilakuMerokok" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="">Pilih</option>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Pasif">Pasif</option>
+                        <option value="Tidak">Tidak</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Isi Piringku -->
+            <div class="form-section">
+                <h3 class="section-title">Isi Piringku (Keragaman Gizi: Makanan Pokok, Lauk Pauk, Sayur dan Buah)</h3>
+                <div class="bg-orange-50 p-3 rounded-lg mb-4">
+                    <p class="text-sm text-orange-700"><strong>Pilihan Jawaban:</strong> Sesuai = Makan lengkap 4 komponen | Tidak Sesuai = Kurang dari 4 komponen</p>
+                </div>
+                <div>
+                    <select name="isiPiringku" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="">Pilih</option>
+                        <option value="Sesuai">Sesuai</option>
+                        <option value="Tidak Sesuai">Tidak Sesuai</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Pemberian Edukasi -->
             <div class="form-section">
                 <h3 class="section-title">Pemberian Edukasi / Rujukan Nakes</h3>
-                <textarea name="edukasi_rujukan" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Catatan edukasi atau rujukan yang diberikan..."></textarea>
+                <div>
+                    <textarea name="pemberianEdukasi" rows="4" placeholder="Tuliskan edukasi atau rujukan yang diberikan..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
             </div>
-            <form id="healthForm" class="space-y-6">
-            <!-- Data Kader -->
-            <div class="form-section">
-                <h3 class="section-title">Data Kader</h3>
-                <div class="grid md:grid-cols-2 gap-4">
 
-             <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Kader</label>
-                        <input type="text" name="nama_kader" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    </div>
-            <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Desa</label>
-                        <input type="text" name="nama_desa" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    </div>
-            <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Posyandu</label>
-                        <input type="text" name="nama_posyandu" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    </div>
-                    </div>
-                    </div>
-                 </div>
             <!-- Submit Button -->
             <div class="text-center">
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg">
-                    Kirim Data ke Spreadsheet
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition duration-300 shadow-lg">
+                    📋 Kirim Data ke Spreadsheet
                 </button>
             </div>
         </form>
 
         <!-- Status Message -->
-        <div id="statusMessage" class="hidden mt-4 p-4 rounded-lg text-center"></div>
+        <div id="statusMessage" class="mt-6 p-4 rounded-lg text-center hidden"></div>
     </div>
 
     <script>
-        // URL Google Apps Script Web App
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQ07QnhK2UCtZPXQ0OelaBEReCFIBNoPwf7qfnmSYFFVksr8_vJde5K9HTDbpQO04JfA/exec';
+        // Google Apps Script Web App URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbybHmgdzRvRycF2rIUl5rqe-2fJSW8E5_JexrYKNyC-TT483oXeo0aDRn3bDrutCHhl_A/exec';
 
-        document.getElementById('healthForm').addEventListener('submit', async function(e) {
+        document.getElementById('checklistForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const statusDiv = document.getElementById('statusMessage');
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Mengirim...';
-            statusDiv.className = 'mt-4 p-4 rounded-lg text-center bg-blue-100 text-blue-800';
-            statusDiv.textContent = 'Sedang mengirim data...';
+            statusDiv.className = 'mt-6 p-4 rounded-lg text-center bg-blue-100 text-blue-800';
+            statusDiv.textContent = '📤 Mengirim data ke spreadsheet...';
             statusDiv.classList.remove('hidden');
 
             try {
-                const formData = new FormData(e.target);
+                const formData = new FormData(this);
                 const data = {};
                 
-                // Process form data
+                // Convert FormData to regular object
                 for (let [key, value] of formData.entries()) {
                     if (data[key]) {
                         // Handle multiple values (checkboxes)
@@ -392,7 +688,9 @@
                     }
                 }
 
-                // Send to Google Apps Script
+                // Add timestamp
+                data.timestamp = new Date().toLocaleString('id-ID');
+
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
@@ -402,32 +700,71 @@
                     body: JSON.stringify(data)
                 });
 
-                // Success message
-                statusDiv.className = 'mt-4 p-4 rounded-lg text-center bg-green-100 text-green-800';
-                statusDiv.textContent = 'Data berhasil dikirim ke spreadsheet!';
-                
-                // Reset form
-                e.target.reset();
-                
+                // Since we're using no-cors, we can't read the response
+                // We'll assume success after a short delay
+                setTimeout(() => {
+                    statusDiv.className = 'mt-6 p-4 rounded-lg text-center bg-green-100 text-green-800';
+                    statusDiv.textContent = '✅ Data berhasil dikirim ke spreadsheet!';
+                    
+                    // Reset form after successful submission
+                    this.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        statusDiv.classList.add('hidden');
+                    }, 5000);
+                }, 2000);
+
             } catch (error) {
                 console.error('Error:', error);
-                statusDiv.className = 'mt-4 p-4 rounded-lg text-center bg-red-100 text-red-800';
-                statusDiv.textContent = 'Terjadi kesalahan saat mengirim data. Silakan coba lagi.';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Kirim Data ke Spreadsheet';
+                statusDiv.className = 'mt-6 p-4 rounded-lg text-center bg-red-100 text-red-800';
+                statusDiv.textContent = '❌ Terjadi kesalahan saat mengirim data. Silakan coba lagi.';
             }
         });
+
+        // Auto-hide status message when user starts typing again
+        document.getElementById('checklistForm').addEventListener('input', function() {
+            const statusDiv = document.getElementById('statusMessage');
+            if (!statusDiv.classList.contains('hidden') && statusDiv.textContent.includes('✅')) {
+                statusDiv.classList.add('hidden');
+            }
+        });
+
+        // Calculate IMT automatically
+        function calculateIMT() {
+            const beratBadan = parseFloat(document.querySelector('input[name="beratBadan"]').value);
+            const tinggiBadan = parseFloat(document.querySelector('input[name="tinggiBadan"]').value);
+            
+            if (beratBadan && tinggiBadan) {
+                const tinggiMeter = tinggiBadan / 100; // Convert cm to meter
+                const imt = beratBadan / (tinggiMeter * tinggiMeter);
+                
+                document.querySelector('input[name="imt"]').value = imt.toFixed(1);
+                
+                // Determine status gizi based on IMT for children/adolescents
+                let statusGizi = '';
+                if (imt < 17.0) {
+                    statusGizi = 'Sangat Kurus';
+                } else if (imt >= 17.0 && imt < 18.5) {
+                    statusGizi = 'Kurus';
+                } else if (imt >= 18.5 && imt < 25.0) {
+                    statusGizi = 'Normal';
+                } else if (imt >= 25.0 && imt < 27.0) {
+                    statusGizi = 'Gemuk';
+                } else if (imt >= 27.0) {
+                    statusGizi = 'Obesitas';
+                }
+                
+                document.querySelector('input[name="statusGizi"]').value = statusGizi;
+            } else {
+                document.querySelector('input[name="imt"]').value = '';
+                document.querySelector('input[name="statusGizi"]').value = '';
+            }
+        }
+
+        // Add event listeners for automatic calculation
+        document.querySelector('input[name="beratBadan"]').addEventListener('input', calculateIMT);
+        document.querySelector('input[name="tinggiBadan"]').addEventListener('input', calculateIMT);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982ff8d574e740f6',t:'MTc1ODUyNDkxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9838d4a5700e1ecc',t:'MTc1ODYxNzgwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
-
-
-
-
-
-
-
